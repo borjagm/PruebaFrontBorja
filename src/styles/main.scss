@@ -1,0 +1,9 @@
+@use './variables' as vars;
+@use './mixins';
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: vars.$primary-color;
+    color: vars.$text-color;
+    @include mixins.center-content;
+  }
