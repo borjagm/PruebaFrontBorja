@@ -1,11 +1,15 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
+import path from 'path';
+import { fileURLToPath } from 'url';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
+import TerserPlugin from 'terser-webpack-plugin';
 
-// Función para determinar el modo
-module.exports = (env, argv) => {
+// Definir __filename y __dirname
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+export default (env, argv) => {
   const isProduction = argv.mode === 'production';
 
   return {
@@ -13,7 +17,7 @@ module.exports = (env, argv) => {
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: isProduction ? 'bundle.[contenthash].js' : 'bundle.js',
-      clean: true, // Limpia la carpeta dist antes de cada build
+      clean: true,
     },
     mode: isProduction ? 'production' : 'development',
     devtool: isProduction ? 'source-map' : 'eval-cheap-module-source-map',
@@ -25,7 +29,7 @@ module.exports = (env, argv) => {
     module: {
       rules: [
         {
-            test: /\.(js|jsx)$/,
+          test: /\.(js|jsx)$/,
           exclude: /node_modules/,
           use: 'babel-loader',
         },
@@ -40,7 +44,7 @@ module.exports = (env, argv) => {
       ],
     },
     resolve: {
-        extensions: ['.js', '.jsx']
+      extensions: ['.js', '.jsx'],
     },
     plugins: [
       new HtmlWebpackPlugin({
