@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // Cargar los componentes de manera diferida con React.lazy
 const Home = lazy(() => import('./pages/Home/Home.jsx'));
 const PodcastDetail = lazy(() => import('./pages/PodcastDetail/PodcastDetail.jsx'));
-const PodcastCapDetail = lazy(() => import('./pages/PodcastCapDetail/podcastCapDetail.jsx'));
+const PodcastCapDetail = lazy(() => import('./pages/PodcastCapDetail/PodcastCapDetail.jsx'));
 
 function App() {
   return (
