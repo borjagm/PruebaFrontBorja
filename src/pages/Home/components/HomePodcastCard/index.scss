@@ -1,0 +1,38 @@
+.podcast-card-grid {
+    // estilos para el contenedor de la cuadrícula
+  }
+  
+  .podcast-card-grid-item {
+    // estilos para cada elemento de la cuadrícula
+  }
+  
+  .podcast-card-box {
+    position: relative;
+    padding-top: 85px;
+  }
+  
+  .podcast-card-card {
+    margin-top: 85px;
+  }
+  
+  .podcast-card-image {
+    border-radius: 50%;
+    position: absolute;
+    top: 5vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 170px;
+    height: 170px;
+  }
+  
+  .podcast-card-card-content {
+    padding-top: 85px;
+  }
+  
+  .podcast-card-title {
+    // estilos para el título del podcast
+  }
+  
+  .podcast-card-author {
+    // estilos para el autor del podcast
+  }
