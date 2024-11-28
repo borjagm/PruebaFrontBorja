@@ -35,7 +35,7 @@ const Home = () => {
   return (
     <div>
       <Suspense fallback={<div>Loading component...</div>}>
-      <HomePodcastSearch searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+      <HomePodcastSearch searchTerm={searchTerm} setSearchTerm={setSearchTerm} resultCount={filteredPodcasts.length} />
       <Grid2 container spacing={2} className="podcast-card-grid">
       {filteredPodcasts.map((podcast, index) => (
         
