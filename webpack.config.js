@@ -44,6 +44,11 @@ export default (env, argv) => {
       ],
     },
     resolve: {
+      alias: {
+        '@services': path.resolve(__dirname, 'src/services/'),
+        '@context': path.resolve(__dirname, 'src/context/'),
+        '@pages': path.resolve(__dirname, 'src/pages/')
+      },
       extensions: ['.js', '.jsx'],
     },
     plugins: [
