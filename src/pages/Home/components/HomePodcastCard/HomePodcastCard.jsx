@@ -1,13 +1,21 @@
 import React from 'react'
 import { Box, Card, CardContent, CardMedia, Grid, Typography } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import './index.scss';
 
 const HomePodcastCard = (props) => {
     const { index, podcast, selectPodcast } = props;
+    const navigate = useNavigate();
+
+    //Controlamos el click en el card para navegar a la página del podcast
+    const handleClick = () => {
+      const podcastId = podcast.id.attributes['im:id'];
+      navigate(`/podcast/${podcastId}`);
+    };
 
   return (
       <Grid item xs={12} sm={6} md={4} key={index} className="podcast-card-grid-item">
-        <Box className="podcast-card-box">
+        <Box className="podcast-card-box" onClick={handleClick}>
           <Card className="podcast-card-card">
             <CardMedia
               component="img"
