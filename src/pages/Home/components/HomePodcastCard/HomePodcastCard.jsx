@@ -2,12 +2,10 @@ import React from 'react'
 import { Box, Card, CardContent, CardMedia, Grid, Typography } from '@mui/material';
 import './index.scss';
 
-export const HomePodcastCard = (props) => {
-    const { podcasts } = props;
+const HomePodcastCard = (props) => {
+    const { index, podcast, selectPodcast } = props;
 
   return (
-    <Grid container spacing={2} className="podcast-card-grid">
-    {podcasts.map((podcast, index) => (
       <Grid item xs={12} sm={6} md={4} key={index} className="podcast-card-grid-item">
         <Box className="podcast-card-box">
           <Card className="podcast-card-card">
@@ -29,7 +27,7 @@ export const HomePodcastCard = (props) => {
           </Card>
         </Box>
       </Grid>
-    ))}
-  </Grid>
   )
 };
+
+export default HomePodcastCard;
