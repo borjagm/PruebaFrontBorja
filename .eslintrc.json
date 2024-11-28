@@ -30,7 +30,8 @@
           "map": [
             ["@services", "./src/services"],
             ["@context", "./src/context"],
-            ["@pages", "./src/pages"]
+            ["@pages", "./src/pages"],
+            ["@SiteConfig", "./src/SiteConfig.js"]
           ],
           "extensions": [".js", ".jsx"]
         }

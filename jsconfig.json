@@ -6,7 +6,8 @@
       "paths": {
         "@services/*": ["services/*"],
         "@context/*": ["context/*"],
-        "@pages/*": ["pages/*"]
+        "@pages/*": ["pages/*"],
+        "@SiteConfig": ["SiteConfig.js"],
       },
       "jsx": "react",
       "allowSyntheticDefaultImports": true,

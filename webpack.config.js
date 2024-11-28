@@ -48,7 +48,8 @@ export default (env, argv) => {
       alias: {
         '@services': path.resolve(__dirname, 'src/services/'),
         '@context': path.resolve(__dirname, 'src/context/'),
-        '@pages': path.resolve(__dirname, 'src/pages/')
+        '@pages': path.resolve(__dirname, 'src/pages/'),
+        '@SiteConfig': path.resolve(__dirname, 'src/SiteConfig.js'),
       },
       extensions: ['.js', '.jsx'],
     },
