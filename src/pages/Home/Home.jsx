@@ -2,6 +2,8 @@ import React, { useContext, lazy, Suspense, useEffect, useState } from 'react';
 import { PodcastContext } from '@context/PodcastContext';
 import { Grid2 } from '@mui/material';
 
+import './index.scss';
+
 const HomePodcastCard = lazy(() => import('@pages/Home/components/HomePodcastCard/HomePodcastCard'));
 const HomePodcastSearch = lazy(() => import('@pages/Home/components/HomePodcastSearch/HomePodcastSearch'));
 
@@ -25,7 +27,7 @@ const Home = () => {
   }
 
   if (error) {
-    return <div>{error}</div>;
+    console.log(error);
   }
 
   useEffect(() =>{
@@ -35,18 +37,16 @@ const Home = () => {
   return (
     <div>
       <Suspense fallback={<div>Loading component...</div>}>
-      <HomePodcastSearch searchTerm={searchTerm} setSearchTerm={setSearchTerm} resultCount={filteredPodcasts.length} />
-      <Grid2 container spacing={2} className="podcast-card-grid">
-      {filteredPodcasts.map((podcast, index) => (
-        
-        <HomePodcastCard
-          key={index}
-          podcast={podcast}
-          selectPodcast={selectPodcast}
-        />
-        
-      ))}
-      </Grid2>
+        <HomePodcastSearch searchTerm={searchTerm} setSearchTerm={setSearchTerm} resultCount={filteredPodcasts.length} />
+        <Grid2 className="podcast-card-grid" container spacing={2} >
+          {filteredPodcasts.map((podcast, index) => (
+            <HomePodcastCard
+              key={index}
+              podcast={podcast}
+              selectPodcast={selectPodcast}
+            />
+          ))}
+        </Grid2>
       </Suspense>
     </div>
   );
