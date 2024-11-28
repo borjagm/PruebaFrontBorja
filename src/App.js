@@ -23,8 +23,8 @@ function App() {
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/podcast/:id" element={<PodcastDetail />} />
-          <Route path="/podcast/:id/cap/:capId" element={<PodcastCapDetail />} />
+          <Route path="/podcast/:podcastId" element={<PodcastDetail />} />
+          <Route path="/podcast/:podcastId/episode/:episodeId" element={<PodcastCapDetail />} />
         </Routes>
       </Suspense>
     </Router>
