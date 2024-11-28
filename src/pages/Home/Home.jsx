@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { PodcastContext } from '../../context/PodcastContext';
+import { PodcastContext } from '@context/PodcastContext';
 
 const Home = () => {
   const { podcasts, loading, error } = useContext(PodcastContext);

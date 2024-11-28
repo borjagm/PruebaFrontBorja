@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
-import { fetchData } from '../services/ApiServices';
+import { fetchData } from '@services/ApiServices';
 
 export const PodcastContext = createContext();
 
