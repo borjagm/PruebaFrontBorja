@@ -1,6 +1,6 @@
-import React, { useContext, lazy, Suspense } from 'react';
+import React, { useContext, lazy, Suspense, useEffect } from 'react';
 import { PodcastContext } from '@context/PodcastContext';
-import { Grid, Grid2 } from '@mui/material';
+import { Grid2 } from '@mui/material';
 
 const HomePodcastCard = lazy(() => import('@pages/Home/components/HomePodcastCard/HomePodcastCard'));
 
@@ -15,8 +15,10 @@ const Home = () => {
     return <div>{error}</div>;
   }
 
-  console.log(podcasts);
-
+  useEffect(() =>{
+    console.log(podcasts);
+  }), [podcasts];
+  
   return (
     <div>
       <Suspense fallback={<div>Loading component...</div>}>
