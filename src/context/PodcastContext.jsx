@@ -7,6 +7,7 @@ export const PodcastProvider = ({ children }) => {
   const [podcasts, setPodcasts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [activePodcast, setActivePodcast] = useState(null);
 
   useEffect(() => {
     const fetchPodcasts = async () => {
@@ -43,8 +44,12 @@ export const PodcastProvider = ({ children }) => {
     fetchPodcasts();
   }, []);
 
+  const selectPodcast = (podcast) => {
+    setActivePodcast(podcast);
+  };
+
   return (
-    <PodcastContext.Provider value={{ podcasts, loading, error }}>
+    <PodcastContext.Provider value={{ podcasts, loading, error, activePodcast, selectPodcast }}>
       {children}
     </PodcastContext.Provider>
   );
