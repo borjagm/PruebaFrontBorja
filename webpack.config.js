@@ -19,6 +19,7 @@ export default (env, argv) => {
       path: path.resolve(__dirname, 'dist'),
       filename: isProduction ? 'bundle.[contenthash].js' : 'bundle.js',
       clean: true,
+      publicPath: '/',
     },
     mode: isProduction ? 'production' : 'development',
     devtool: isProduction ? 'source-map' : 'eval-cheap-module-source-map',
@@ -26,6 +27,7 @@ export default (env, argv) => {
       static: './dist',
       port: 3000,
       open: true,
+      historyApiFallback: true,
     },
     module: {
       rules: [
