@@ -52,6 +52,7 @@ export default (env, argv) => {
         '@context': path.resolve(__dirname, 'src/context/'),
         '@pages': path.resolve(__dirname, 'src/pages/'),
         '@SiteConfig': path.resolve(__dirname, 'src/SiteConfig.js'),
+        '@sharedComponents': path.resolve(__dirname, 'src/sharedComponents/'),
       },
       extensions: ['.js', '.jsx'],
     },

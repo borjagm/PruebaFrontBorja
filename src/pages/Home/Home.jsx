@@ -29,10 +29,6 @@ const Home = () => {
   if (error) {
     console.log(error);
   }
-
-  useEffect(() =>{
-    console.log(filteredPodcasts);
-  }), [filteredPodcasts];
   
   return (
     <div>

@@ -1,13 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchData } from '@services/ApiServices';
-import { Typography } from '@mui/material';
+import { List, ListItem, ListItemText, Typography } from '@mui/material';
+import { PodcastContext } from '@context/PodcastContext';
+import PodcastDescriptionBox from '@sharedComponents/PodcastDescriptionBox';
 
 const PodcastDetail = () => {
   const { podcastId } = useParams();
   const [podcastDetail, setPodcastDetail] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const { podcasts } = useContext(PodcastContext);
+  const activePodcast = podcasts.find(podcast => podcast.id.attributes['im:id'] === podcastId);
 
   useEffect(() => {
     const fetchPodcastDetail = async () => {
@@ -26,27 +30,33 @@ const PodcastDetail = () => {
     fetchPodcastDetail();
   }, [podcastId]);
 
+  if(!activePodcast) return <div>Podcast not found, Click on APP Title to go home</div>;
   if (loading) return <div>Loading...</div>;
   if (error) return <div>{error}</div>;
 
   console.log(podcastDetail);
+  console.log(activePodcast);
 
   const episodes = podcastDetail.filter(item => item.wrapperType === 'podcastEpisode');
 
   return (
     <div>
-      <h1>{podcastDetail[0]?.collectionName}</h1>
-      <p>{podcastDetail[0]?.description}</p>
+      <PodcastDescriptionBox activePodcast={activePodcast}/>
       <Typography variant="h6">Episodes: {episodes.length}</Typography>
-      <ul>
+      <List>
+        <ListItem>
+          <ListItemText primary="Title" />
+          <ListItemText primary="Date" />
+          <ListItemText primary="Duration" />
+        </ListItem>
         {episodes.map((episode) => (
-          <li key={episode.trackId}>
-            <h3>{episode.trackName}</h3>
-            <p>Release Date: {new Date(episode.releaseDate).toLocaleDateString()}</p>
-            <p>Duration: {Math.floor(episode.trackTimeMillis / 60000)} minutes</p>
-          </li>
+          <ListItem key={episode.trackId}>
+            <ListItemText primary={episode.trackName} />
+            <ListItemText primary={new Date(episode.releaseDate).toLocaleDateString()} />
+            <ListItemText primary={`${Math.floor(episode.trackTimeMillis / 60000)} minutes`} />
+          </ListItem>
         ))}
-      </ul>
+      </List>
     </div>
   );
 };

@@ -8,6 +8,7 @@
         "@context/*": ["context/*"],
         "@pages/*": ["pages/*"],
         "@SiteConfig": ["SiteConfig.js"],
+        "@sharedComponents/*": ["sharedComponents/*"],
       },
       "jsx": "react",
       "allowSyntheticDefaultImports": true,

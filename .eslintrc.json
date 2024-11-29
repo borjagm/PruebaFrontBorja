@@ -31,7 +31,8 @@
             ["@services", "./src/services"],
             ["@context", "./src/context"],
             ["@pages", "./src/pages"],
-            ["@SiteConfig", "./src/SiteConfig.js"]
+            ["@SiteConfig", "./src/SiteConfig.js"],
+            ["@sharedComponents", "./src/sharedComponents"]
           ],
           "extensions": [".js", ".jsx"]
         }

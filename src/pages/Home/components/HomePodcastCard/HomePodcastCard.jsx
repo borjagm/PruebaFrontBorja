@@ -9,6 +9,7 @@ const HomePodcastCard = (props) => {
 
     //Controlamos el click en el card para navegar a la página del podcast
     const handleClick = () => {
+      selectPodcast(podcast);
       const podcastId = podcast.id.attributes['im:id'];
       navigate(`/podcast/${podcastId}`);
     };
