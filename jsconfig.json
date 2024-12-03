@@ -9,6 +9,7 @@
         "@pages/*": ["pages/*"],
         "@SiteConfig": ["SiteConfig.js"],
         "@sharedComponents/*": ["sharedComponents/*"],
+        "@utils/*": ["utils/*"],
       },
       "jsx": "react",
       "allowSyntheticDefaultImports": true,

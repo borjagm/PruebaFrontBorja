@@ -33,6 +33,7 @@
             ["@pages", "./src/pages"],
             ["@SiteConfig", "./src/SiteConfig.js"],
             ["@sharedComponents", "./src/sharedComponents"]
+            ["@utils", "./src/utils"]
           ],
           "extensions": [".js", ".jsx"]
         }
