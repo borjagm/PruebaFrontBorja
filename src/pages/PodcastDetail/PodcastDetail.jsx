@@ -13,25 +13,24 @@ const PodcastDetail = () => {
   const [podcastDetail, setPodcastDetail] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const { podcasts } = useContext(PodcastContext);
+  const { podcasts, selectEpisode, fetchPodcastDetail } = useContext(PodcastContext);
   const activePodcast = podcasts.find(podcast => podcast.id.attributes['im:id'] === podcastId);
 
   useEffect(() => {
-    const fetchPodcastDetail = async () => {
+    const loadPodcastDetail = async () => {
       try {
         setLoading(true);
-        const url = `https://itunes.apple.com/lookup?id=${podcastId}&media=podcast&entity=podcastEpisode&limit=20`;
-        const data = await fetchData(url);
-        setPodcastDetail(data.results);
+        const data = await fetchPodcastDetail(podcastId);
+        setPodcastDetail(data);
         setLoading(false);
       } catch (err) {
-        setError('Failed to load podcast details');
+        setError('Failed to load podcast detail');
         setLoading(false);
       }
     };
 
-    fetchPodcastDetail();
-  }, [podcastId]);
+    loadPodcastDetail();
+  }, [podcastId, fetchPodcastDetail]);
 
   if(!activePodcast) return <div>Podcast not found, Click on APP Title to go home</div>;
   if (loading) return <div>Loading...</div>;
@@ -46,7 +45,7 @@ const PodcastDetail = () => {
     <div className='podcast-detail'>
       <div className='podcast-detail__container'>
         <PodcastDescriptionBox activePodcast={activePodcast} />
-        <PodcastEpisodesList podcastId={podcastId} episodes={episodes} />
+        <PodcastEpisodesList podcastId={podcastId} episodes={episodes} selectEpisode={selectEpisode} />
       </div>
     </div>
   );
