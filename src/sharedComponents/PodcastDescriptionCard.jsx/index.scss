@@ -1,0 +1,44 @@
+.podcast-resume-box {
+    max-width: 220px;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    padding: 16px;
+    background-color: #fff;
+    text-align: center;
+
+    .podcast-resume-box-image {
+        display: block;
+        margin: 0 auto;
+    }
+
+    .separator {
+        border-bottom: 1px solid #ccc;
+        margin: 16px 0;
+    }
+
+    .podcast-resume-box-name {
+        text-align: left;
+        font-weight: bold;
+        font-size: 0.9em;
+    }
+
+    .podcast-resume-box-author {
+        text-align: left;
+        font-style: italic;
+        font-size: 0.85em;
+    }
+
+    .podcast-resume-box-desctitle {
+        text-align: left;
+        font-weight: bold;
+        font-size: 0.75em;
+    }
+
+    .podcast-resume-box-desc {
+        text-align: left;
+        font-style: italic;
+        font-size: 0.75em;
+        word-wrap: break-word;
+    }
+}

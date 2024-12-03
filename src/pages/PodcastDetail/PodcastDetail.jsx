@@ -1,9 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { List, ListItem, ListItemText, ListSubheader, Typography } from '@mui/material';
+import { Link } from 'react-router-dom';
+
 import { fetchData } from '@services/ApiServices';
-import { List, ListItem, ListItemText, Typography } from '@mui/material';
 import { PodcastContext } from '@context/PodcastContext';
-import PodcastDescriptionBox from '@sharedComponents/PodcastDescriptionBox';
+import PodcastDescriptionBox from '@sharedComponents/PodcastDescriptionCard.jsx/PodcastDescriptionCard';
+
+import './index.scss';
 
 const PodcastDetail = () => {
   const { podcastId } = useParams();
@@ -40,23 +44,45 @@ const PodcastDetail = () => {
   const episodes = podcastDetail.filter(item => item.wrapperType === 'podcastEpisode');
 
   return (
-    <div>
-      <PodcastDescriptionBox activePodcast={activePodcast}/>
-      <Typography variant="h6">Episodes: {episodes.length}</Typography>
-      <List>
-        <ListItem>
-          <ListItemText primary="Title" />
-          <ListItemText primary="Date" />
-          <ListItemText primary="Duration" />
-        </ListItem>
-        {episodes.map((episode) => (
-          <ListItem key={episode.trackId}>
-            <ListItemText primary={episode.trackName} />
-            <ListItemText primary={new Date(episode.releaseDate).toLocaleDateString()} />
-            <ListItemText primary={`${Math.floor(episode.trackTimeMillis / 60000)} minutes`} />
-          </ListItem>
-        ))}
-      </List>
+    <div className='podcast-detail'>
+      <div className='podcast-detail__container'>
+        <PodcastDescriptionBox activePodcast={activePodcast} />
+        <div className="podcast-detail__content">
+          <Typography className="podcast-detail__episodes" variant="h6">Episodes: {episodes.length}</Typography>
+          <List className='podcast-detail__list'>
+          <ListSubheader className='podcast-detail__list-titles'>
+            <ListItem>
+              <ListItemText primary="Title" className="podcast-detail__list-titles__text" />
+              <ListItemText primary="Date" className="podcast-detail__list-titles__text" />
+              <ListItemText primary="Duration" className="podcast-detail__list-titles__text"/>
+            </ListItem>
+          </ListSubheader>
+            {episodes.map((episode) => (
+              <ListItem className='podcast-detail__list-content' key={episode.trackId}>
+              <ListItemText
+                className='podcast-detail__list-content__text'
+                primary={
+                  <Link 
+                    to={`/podcast/${podcastId}/episode/${episode.trackId}`} 
+                    className='podcast-detail__link'
+                  >
+                    {episode.trackName}
+                  </Link>
+                }
+              />
+              <ListItemText 
+                className='podcast-detail__list-content__text' 
+                primary={new Date(episode.releaseDate).toLocaleDateString()} 
+              />
+              <ListItemText 
+                className='podcast-detail__list-content__text' 
+                primary={`${Math.floor(episode.trackTimeMillis / 60000)} minutes`} 
+              />
+            </ListItem>
+            ))}
+          </List>
+        </div>
+      </div>
     </div>
   );
 };
