@@ -21,11 +21,9 @@ const PodcastEpisodesList = ({ podcastId, episodes, selectEpisode }) => {
       </Typography>
       <List className="podcast-detail__list">
         <ListSubheader className="podcast-detail__list-titles">
-          <ListItem>
-            <ListItemText primary="Title" className="podcast-detail__list-titles__text" />
-            <ListItemText primary="Date" className="podcast-detail__list-titles__text" />
-            <ListItemText primary="Duration" className="podcast-detail__list-titles__text" />
-          </ListItem>
+          <div className="podcast-detail__list-titles__text">Title</div>
+          <div className="podcast-detail__list-titles__text">Date</div>
+          <div className="podcast-detail__list-titles__text">Duration</div>
         </ListSubheader>
         {episodes.map((episode) => (
           <ListItem className="podcast-detail__list-content" key={episode.trackId}>
