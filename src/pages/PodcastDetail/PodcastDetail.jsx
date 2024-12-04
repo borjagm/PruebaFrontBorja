@@ -39,7 +39,7 @@ const PodcastDetail = () => {
     return <div>Error al cargar los datos. Por favor, inténtalo de nuevo más tarde.</div>;
   }
 
-  const episodes = podcastDetail.filter(item => item.wrapperType === 'podcastEpisode');
+  const episodes = podcastDetail?.filter(item => item.wrapperType === 'podcastEpisode');
 
   return (
     <div className='podcast-detail'>
