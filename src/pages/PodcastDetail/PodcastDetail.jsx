@@ -24,7 +24,7 @@ const PodcastDetail = () => {
         setPodcastDetail(data);
         setLoading(false);
       } catch (err) {
-        setError('Failed to load podcast detail');
+        console.error('Failed to load podcast detail : ', err);
         setLoading(false);
       }
     };
@@ -34,12 +34,12 @@ const PodcastDetail = () => {
 
   if(!activePodcast) return <div>Podcast not found, Click on APP Title to go home</div>;
   if (loading) return <div></div>;
-  if (error) return <div>{error}</div>;
+  if (error) {
+    console.error(error);
+    return <div>Error al cargar los datos. Por favor, inténtalo de nuevo más tarde.</div>;
+  }
 
-  console.log(podcastDetail);
-  console.log(activePodcast);
-
-  const episodes = podcastDetail.filter(item => item.wrapperType === 'podcastEpisode');
+  const episodes = podcastDetail?.filter(item => item.wrapperType === 'podcastEpisode');
 
   return (
     <div className='podcast-detail'>

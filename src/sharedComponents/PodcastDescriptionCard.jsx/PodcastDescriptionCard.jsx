@@ -21,12 +21,12 @@ const PodcastDescriptionCard = ({ activePodcast , clickable }) => {
         <Box 
             className={`podcast-resume-box ${clickable ? 'clickable' : ''}`} 
             onClick={handleClick}
-        >
+        >       
             <img className='podcast-resume-box__image' src={podcastImage} alt={podcastName} />
-            <div className="separator"></div>
+            <div className="podcast-resume-box__separator"></div>  {/* Clase corregida */}
             <Typography className='podcast-resume-box__name'>{podcastName}</Typography>
             <Typography className='podcast-resume-box__author'>by {podcastArtist}</Typography>
-            <div className="separator"></div>
+            <div className="podcast-resume-box__separator"></div>  {/* Clase corregida */}
             <Typography className='podcast-resume-box__desctitle' variant="h6">Description:</Typography>
             <Typography className='podcast-resume-box__desc' variant="body2">{podcastSummary}</Typography>
         </Box>
