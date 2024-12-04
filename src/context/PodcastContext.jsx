@@ -76,6 +76,7 @@ export const PodcastProvider = ({ children }) => {
   // Función para seleccionar un podcast como activo
   const selectPodcast = (podcast) => {
     setActivePodcast(podcast);
+    localStorage.setItem('activePodcast', JSON.stringify(podcast));
   };
 
   // Función para seleccionar un episodio como activo

@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import PodcastEpisodesList from '@pages/PodcastDetail/components/PodcastEpisodesList/PodcastEpisodesList';
 import { fetchData } from '@services/ApiServices';
 import { PodcastContext } from '@context/PodcastContext';
-import PodcastDescriptionBox from '@sharedComponents/PodcastDescriptionCard.jsx/PodcastDescriptionCard';
+import PodcastDescriptionCard from '@sharedComponents/PodcastDescriptionCard.jsx/PodcastDescriptionCard';
 
 import './index.scss';
 
@@ -44,7 +44,7 @@ const PodcastDetail = () => {
   return (
     <div className='podcast-detail'>
       <div className='podcast-detail__container'>
-        <PodcastDescriptionBox activePodcast={activePodcast} />
+        <PodcastDescriptionCard activePodcast={activePodcast} clickable={false} />
         <PodcastEpisodesList podcastId={podcastId} episodes={episodes} selectEpisode={selectEpisode} />
       </div>
     </div>
