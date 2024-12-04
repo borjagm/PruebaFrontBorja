@@ -33,7 +33,7 @@ const PodcastDetail = () => {
   }, [podcastId, fetchPodcastDetail]);
 
   if(!activePodcast) return <div>Podcast not found, Click on APP Title to go home</div>;
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <div></div>;
   if (error) return <div>{error}</div>;
 
   console.log(podcastDetail);
