@@ -1,0 +1,14 @@
+/* utilizo box-sizing para que el padding y border no afecten el ancho del elemento */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.podcast-detail {
+    &__container {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
+}

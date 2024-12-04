@@ -1,0 +1,12 @@
+/* utilizo box-sizing para que el padding y border no afecten el ancho del elemento */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.episode-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+}

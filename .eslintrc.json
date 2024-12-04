@@ -1,0 +1,43 @@
+{
+    "env": {
+      "browser": true,
+      "es2021": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended"
+    ],
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      },
+      "ecmaVersion": 2020,
+      "sourceType": "module"
+    },
+    "plugins": [
+      "react",
+      "react-hooks",
+      "import"
+    ],
+    "rules": {
+      "react/react-in-jsx-scope": "off",
+      "import/no-unresolved": "error",
+      "import/order": ["error", { "newlines-between": "always" }]
+    },
+    "settings": {
+      "import/resolver": {
+        "alias": {
+          "map": [
+            ["@services", "./src/services"],
+            ["@context", "./src/context"],
+            ["@pages", "./src/pages"],
+            ["@SiteConfig", "./src/SiteConfig.js"],
+            ["@sharedComponents", "./src/sharedComponents"]
+            ["@utils", "./src/utils"]
+          ],
+          "extensions": [".js", ".jsx"]
+        }
+      }
+    },
+    "ignorePatterns": ["node_modules/", "dist/"]
+  }

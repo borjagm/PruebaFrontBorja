@@ -1,0 +1,10 @@
+@use './variables' as vars;
+@use './mixins';
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: vars.$primary-color;
+    color: vars.$text-color;
+    margin-left: 24px;
+    margin-right: 24px;
+}
