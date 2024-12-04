@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import PodcastsIcon from '@mui/icons-material/Podcasts';
 import { PodcastContext } from '@context/PodcastContext';
 
+import './styles/main.scss';
+
 // Cargar los componentes de manera diferida con React.lazy
 const Home = lazy(() => import('./pages/Home/Home.jsx'));
 const PodcastDetail = lazy(() => import('./pages/PodcastDetail/PodcastDetail.jsx'));
