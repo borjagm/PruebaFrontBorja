@@ -7,35 +7,39 @@
     background-color: #fff;
     text-align: center;
 
-    .podcast-resume-box-image {
+    &.clickable {
+        cursor: pointer;
+    }
+
+    &__image {
         display: block;
         margin: 0 auto;
     }
 
-    .separator {
+    &__separator {
         border-bottom: 1px solid #ccc;
         margin: 16px 0;
     }
 
-    .podcast-resume-box-name {
+    &__name {
         text-align: left;
         font-weight: bold;
         font-size: 0.9em;
     }
 
-    .podcast-resume-box-author {
+    &__author {
         text-align: left;
         font-style: italic;
         font-size: 0.85em;
     }
 
-    .podcast-resume-box-desctitle {
+    &__desctitle {
         text-align: left;
         font-weight: bold;
         font-size: 0.75em;
     }
 
-    .podcast-resume-box-desc {
+    &__desc {
         text-align: left;
         font-style: italic;
         font-size: 0.75em;

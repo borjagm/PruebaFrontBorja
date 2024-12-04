@@ -5,10 +5,8 @@
   box-sizing: border-box;
 }
 
-.podcast-detail {
-    &__container {
+.episode-detail {
       display: flex;
       align-items: flex-start;
       gap: 20px;
-    }
 }

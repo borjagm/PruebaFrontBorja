@@ -1,24 +1,36 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import './index.scss';
 
-const PodcastDescriptionBox = ({ activePodcast }) => {
+const PodcastDescriptionCard = ({ activePodcast , clickable }) => {
+    const navigate = useNavigate();
+
     const podcastImage = activePodcast['im:image'].find(img => img.attributes.height === '170').label;
     const podcastName = activePodcast['im:name'].label;
     const podcastArtist = activePodcast['im:artist'].label;
     const podcastSummary = activePodcast['summary'].label;
 
+    const handleClick = () => {
+        if (clickable) {
+            navigate('/podcast/' + activePodcast.id.attributes['im:id']);
+        }
+    };
+
     return (
-        <Box className="podcast-resume-box">
-            <img className='podcast-resume-box-image' src={podcastImage} alt={podcastName} />
+        <Box 
+            className={`podcast-resume-box ${clickable ? 'clickable' : ''}`} 
+            onClick={handleClick}
+        >
+            <img className='podcast-resume-box__image' src={podcastImage} alt={podcastName} />
             <div className="separator"></div>
-            <Typography className='podcast-resume-box-name'>{podcastName}</Typography>
-            <Typography className='podcast-resume-box-author'>by {podcastArtist}</Typography>
+            <Typography className='podcast-resume-box__name'>{podcastName}</Typography>
+            <Typography className='podcast-resume-box__author'>by {podcastArtist}</Typography>
             <div className="separator"></div>
-            <Typography className='podcast-resume-box-desctitle' variant="h6">Description:</Typography>
-            <Typography className='podcast-resume-box-desc' variant="body2">{podcastSummary}</Typography>
+            <Typography className='podcast-resume-box__desctitle' variant="h6">Description:</Typography>
+            <Typography className='podcast-resume-box__desc' variant="body2">{podcastSummary}</Typography>
         </Box>
     );
 };
 
-export default PodcastDescriptionBox;
+export default PodcastDescriptionCard;
