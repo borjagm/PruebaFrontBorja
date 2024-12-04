@@ -68,3 +68,6 @@ El proyecto incluye los siguientes scripts que puedes utilizar:
 - **npm run build**: Construye la versión optimizada para producción.
 - **npm run lint**: Ejecuta ESLint para verificar el código fuente.
 - **npm run lint-fix**: Ejecuta ESLint con la opción --fix para corregir problemas automáticamente.
+
+
+Desarrollado por Borja García Martínez.
