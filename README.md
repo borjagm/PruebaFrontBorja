@@ -1,6 +1,6 @@
-# Prueba Frontend ITX - Navegador de los 100 mejores Podcasts de Apple
+# Prueba Frontend - Navegador de los 100 mejores Podcasts de Apple
 
-Este es un proyecto de prueba frontend para ITX, que consiste en un navegador para explorar los 100 mejores podcasts de Apple. La aplicación está construida utilizando React y se configura con Webpack para su ejecución en dos entornos: **desarrollo** y **producción**.
+Este es un proyecto de prueba frontend, que consiste en un navegador para explorar los 100 mejores podcasts de Apple. La aplicación está construida utilizando React y se configura con Webpack para su ejecución en dos entornos: **desarrollo** y **producción**.
 
 ## Requisitos
 
@@ -14,8 +14,8 @@ Antes de comenzar, asegúrate de tener instalados los siguientes programas:
 1. Clona este repositorio en tu máquina local:
 
    ```bash
-   git clone https://github.com/borjagm/PruebaFrontITX.git
-   cd pruebafrontitx
+   git clone https://github.com/borjagm/PruebaFrontBorja.git
+   cd pruebafrontborja
    ```
 
 2. Instala las dependencias del proyecto:
