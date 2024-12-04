@@ -22,12 +22,14 @@ const Home = () => {
     );
   }, [searchTerm, podcasts]);
 
+  //Aquí se podria poner un loader o algo similar
   if (loading) {
-    return <div>Loading...</div>;
+    return <div></div>;
   }
 
   if (error) {
-    console.log(error);
+    console.error(error);
+    return <div>Error al cargar los datos. Por favor, inténtalo de nuevo más tarde.</div>;
   }
   
   return (

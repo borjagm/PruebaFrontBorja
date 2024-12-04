@@ -19,9 +19,10 @@ export const fetchData = async (url, baseURL = 'https://api.allorigins.win/get')
       return JSON.parse(response.data.contents);
     }
 
-    throw new Error('Contenido vacío o no disponible.');
+    console.error('Contenido vacío o no disponible.');
+    return null;
   } catch (error) {
     console.error('Error al recuperar los datos:', error.message);
-    throw error;
+    return null;
   }
 };

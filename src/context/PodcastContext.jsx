@@ -37,8 +37,7 @@ export const PodcastProvider = ({ children }) => {
 
       return podcastsList;
     } catch (err) {
-      setError('Failed to load podcasts');
-      throw err; // Devuelve el error para manejarlo fuera
+      setError('Failed to load podcasts: ', err);
     } finally {
       setLoading(false);
     }
@@ -56,7 +55,7 @@ export const PodcastProvider = ({ children }) => {
       const selectedPodcast = podcastDetail.find(podcast => podcast.id.attributes['im:id'] === podcastId);
       return selectedPodcast;
     } catch (err) {
-      console.error('Failed to load podcast detail by id: ', err);
+      setError('Failed to load podcast detail by id: ', err);
     } finally {
       setLoading(false);
     }
@@ -88,7 +87,7 @@ export const PodcastProvider = ({ children }) => {
 
       return results;
     } catch (err) {
-      throw new Error('Failed to fetch podcast details');
+      setError('Failed to fetch podcast detail:', err);
     } finally {
       setLoading(false);
     }
@@ -104,7 +103,7 @@ export const PodcastProvider = ({ children }) => {
       setActiveEpisode(episode);
       return episode;
     } catch (err) {
-      console.error("Failed to fetch episode detail:", err);
+      setError("Failed to fetch episode detail:", err);
     } finally {
       setLoading(false);
     }
