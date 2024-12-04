@@ -2,9 +2,9 @@ import React, { useContext, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { PodcastContext } from '@context/PodcastContext';
 import PodcastDescriptionCard from '@sharedComponents/PodcastDescriptionCard.jsx/PodcastDescriptionCard';
+import EpisodeCard from '@pages/PodcastCapDetail/components/EpisodeCard/EpisodeCard';
 
 import './index.scss';
-import { Typography } from '@mui/material';
 
 const PodcastCapDetail = () => {
 
@@ -51,22 +51,9 @@ const PodcastCapDetail = () => {
             {activePodcast &&
             <PodcastDescriptionCard activePodcast={activePodcast} clickable={true}/>
             }
-
-            <div className="episode-detail__box">
-                <Typography className='episode-detail__trackname'>{activeEpisode?.trackName}</Typography>
-                {/* Interpretar la descripción con HTML */}
-                <div
-                    className="episode-detail__description"
-                    dangerouslySetInnerHTML={{ __html: activeEpisode?.description || '' }}
-                ></div>
-                {/* Reproductor de audio básico */}
-                {activeEpisode?.episodeUrl && (
-                    <audio className='episode-detail__audioBar' controls>
-                        <source src={activeEpisode.episodeUrl} type="audio/mp3" />
-                        Your browser does not support the audio element.
-                    </audio>
-                )}
-            </div>
+            {activeEpisode &&
+            <EpisodeCard activeEpisode={activeEpisode}/>
+            }  
         </div>
     );
 };
