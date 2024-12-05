@@ -154,4 +154,9 @@ psd
 thumb
 sketch
 
+# Capacitor
+android/
+ios/
+www/
+
 # End of https://www.toptal.com/developers/gitignore/api/react,node
